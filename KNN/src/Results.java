@@ -1,14 +1,33 @@
-public enum Results {
-    Iris_setosa("Iris-setosa"),
-    Iris_versicolor("Iris-versicolor"),
-    Iris_virginica("Iris-virginica");
+public class Results implements Comparable<Results> {
 
-    private final String name;
-    private Results(String name){
+    private double distance;
+    private String name;
+
+    public Results(double distance, String name) {
+        this.distance = distance;
         this.name = name;
     }
-    private String getName(){
+
+    public double getDistance() {
+        return distance;
+    }
+
+    public String getName() {
         return name;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Results{" +
+                "distance=" + distance +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Results o) {
+        return Double.compare(this.distance, o.distance);
     }
 
 
